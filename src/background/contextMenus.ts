@@ -13,7 +13,7 @@ export function initializeContextMenus() {
     });
 
     browser.contextMenus.onClicked.addListener((data) => {
-        if (data.menuItemId === "download-link") {
+        if (data.menuItemId === "add-to-nas") {
             const state = getMutableStateSingleton();
             if (data.linkUrl) {
                 addDownloadTasksAndPoll(

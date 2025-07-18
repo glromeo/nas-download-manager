@@ -5,8 +5,10 @@ import { onStoredStateChange as onStoredStateChangeListener } from "./onStateCha
 import { initializeContextMenus } from "./contextMenus";
 import { initializeMessageHandler } from "./messages";
 
-initializeContextMenus();
-initializeMessageHandler();
+browser.runtime.onInstalled.addListener(() => {
+    initializeContextMenus();
+    initializeMessageHandler();
+});
 
 maybeMigrateState()
   .then(() => {
