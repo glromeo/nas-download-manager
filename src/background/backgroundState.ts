@@ -27,4 +27,4 @@ export function getMutableStateSingleton() {
   return state;
 }
 
-(window as any).getMutableStateSingleton = getMutableStateSingleton;
+(globalThis as any).getMutableStateSingleton = getMutableStateSingleton;

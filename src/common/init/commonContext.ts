@@ -1,1 +1,1 @@
-(window as any).browser = require("webextension-polyfill");
+(globalThis as any).browser = require("webextension-polyfill");

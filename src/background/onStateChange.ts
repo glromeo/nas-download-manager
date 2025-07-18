@@ -60,29 +60,29 @@ export function onStoredStateChange(storedState: State) {
     storedState.settings.notifications.enableFeedbackNotifications;
 
   if (storedState.taskFetchFailureReason) {
-    browser.browserAction.setIcon({
+    browser.action.setIcon({
       path: {
-        "16": "icons/icon-16-disabled.png",
-        "32": "icons/icon-32-disabled.png",
-        "64": "icons/icon-64-disabled.png",
-        "128": "icons/icon-128-disabled.png",
-        "256": "icons/icon-256-disabled.png",
+        "16": "/icons/icon-16-disabled.png",
+        "32": "/icons/icon-32-disabled.png",
+        "64": "/icons/icon-64-disabled.png",
+        "128": "/icons/icon-128-disabled.png",
+        "256": "/icons/icon-256-disabled.png",
       },
     });
 
-    browser.browserAction.setBadgeText({
+    browser.action.setBadgeText({
       text: "",
     });
 
-    browser.browserAction.setBadgeBackgroundColor({ color: [217, 0, 0, 255] });
+    browser.action.setBadgeBackgroundColor({ color: [217, 0, 0, 255] });
   } else {
-    browser.browserAction.setIcon({
+    browser.action.setIcon({
       path: {
-        "16": "icons/icon-16.png",
-        "32": "icons/icon-32.png",
-        "64": "icons/icon-64.png",
-        "128": "icons/icon-128.png",
-        "256": "icons/icon-256.png",
+        "16": "/icons/icon-16.png",
+        "32": "/icons/icon-32.png",
+        "64": "/icons/icon-64.png",
+        "128": "/icons/icon-128.png",
+        "256": "/icons/icon-256.png",
       },
     });
 
@@ -104,11 +104,11 @@ export function onStoredStateChange(storedState: State) {
       return; // Can't `return assertNever(...)` because the linter complains.
     }
 
-    browser.browserAction.setBadgeText({
+    browser.action.setBadgeText({
       text: taskCount === 0 ? "" : taskCount.toString(),
     });
 
-    browser.browserAction.setBadgeBackgroundColor({ color: [0, 217, 0, 255] });
+    browser.action.setBadgeBackgroundColor({ color: [0, 217, 0, 255] });
   }
 
   if (

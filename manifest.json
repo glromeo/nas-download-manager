@@ -1,21 +1,22 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "NAS Download Manager (for Synology)",
   "version": "0.12.2",
   "description": "__MSG_Add_and_manage_Download_Station_tasks_on_your_Synology_DiskStation__",
   "default_locale": "en",
-  "background": {
-    "scripts": [
-      "dist/background/index.js"
-    ]
-  },
   "permissions": [
     "contextMenus",
     "storage",
     "notifications",
+    "scripting"
+  ],
+  "host_permissions": [
     "http://*/*",
     "https://*/*"
   ],
+  "background": {
+    "service_worker": "dist/background/index.js"
+  },
   "content_scripts": [
     {
       "matches": [
@@ -27,8 +28,7 @@
       ]
     }
   ],
-  "browser_action": {
-    "browser_style": true,
+  "action": {
     "default_title": "NAS Download Manager",
     "default_popup": "html/popup.html",
     "default_icon": {
@@ -40,7 +40,8 @@
     }
   },
   "options_ui": {
-    "page": "html/settings.html"
+    "page": "html/settings.html",
+    "open_in_tab": true
   },
   "icons": {
     "16": "icons/icon-16.png",

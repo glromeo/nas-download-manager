@@ -8,7 +8,7 @@ import { saveLastSevereError } from "../errorHandlers";
 //   onUnhandledError(e && e.detail && e.detail.reason);
 // });
 
-window.addEventListener("error", (e) => {
+globalThis.addEventListener("error", (e) => {
   e.preventDefault();
   saveLastSevereError(e.error);
 });
